@@ -5,29 +5,50 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0"
-            xmlns="http://javafx.com/javafx/18"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="CharacterGenerator.Controller.MainSceneController"
-            stylesheets="@/CharacterGenerator/CSS/style.css"
-            styleClass="background">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="background" stylesheets="@/CharacterGenerator/CSS/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CharacterGenerator.Controller.MainSceneController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" onAction="#onMenuCloseClick" />
+              <MenuItem mnemonicParsing="false" onAction="#onMenuCloseClick" text="Close" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Characters">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" text="Add Character" />
+                  <MenuItem mnemonicParsing="false" text="Display Characters" />
+                  <MenuItem mnemonicParsing="false" text="Update Character" />
+                  <MenuItem mnemonicParsing="false" text="Delete Character" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Equipment">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Add Equipment" />
+                  <MenuItem mnemonicParsing="false" text="Display Equipment" />
+                  <MenuItem mnemonicParsing="false" text="Update Equipment" />
+                  <MenuItem mnemonicParsing="false" text="Delete Equipment" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Skills">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Add Skill" />
+                  <MenuItem mnemonicParsing="false" text="Display Skill" />
+                  <MenuItem mnemonicParsing="false" text="Update Skill" />
+                  <MenuItem mnemonicParsing="false" text="Delete Skill" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Classes">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Add Class" />
+                  <MenuItem mnemonicParsing="false" text="Display Class" />
+                  <MenuItem mnemonicParsing="false" text="Update Class" />
+                  <MenuItem mnemonicParsing="false" text="Delete Class" />
+               </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" onAction="#onMenuAboutClick" />
+              <MenuItem mnemonicParsing="false" onAction="#onMenuAboutClick" text="About" />
             </items>
           </Menu>
         </menus>

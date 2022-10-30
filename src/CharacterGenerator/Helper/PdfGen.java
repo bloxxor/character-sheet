@@ -1,4 +1,4 @@
-package CharacterGenerator.Model;
+package CharacterGenerator.Helper;
 
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;

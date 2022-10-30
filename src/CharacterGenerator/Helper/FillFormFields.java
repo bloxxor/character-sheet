@@ -1,4 +1,4 @@
-package CharacterGenerator.Model;
+package CharacterGenerator.Helper;
 
 import com.itextpdf.forms.PdfAcroForm;
 import com.itextpdf.io.font.PdfEncodings;
@@ -13,7 +13,7 @@ import java.io.File;
 public class FillFormFields {
     public static final String DEST = "./target/sandbox/acroforms/fill_form_special_chars2.pdf";
 
-    // public static final String FONT = "./Resources/font/FreeSans.ttf";
+    public static final String FONT = "./Resources/fonts/blackchancery.ttf";
     public static final String SRC = "./Resources/pdf/5E_CharacterSheetTemplate.pdf";
 
     public static void main(String[] args) throws Exception {
@@ -32,10 +32,10 @@ public class FillFormFields {
         // but otherwise the results can be unexpected in Acrobat.
         form.setGenerateAppearance(true);
 
-        //PdfFont font = PdfFontFactory.createFont(FONT, PdfEncodings.IDENTITY_H);
+        PdfFont font = PdfFontFactory.createFont(FONT, PdfEncodings.IDENTITY_H);
 
         // ӧ character is used here
-        form.getField("CharacterName").setValue("\u04e711111");
+        form.getField("CharacterName").setValue("Robin Hood").setFont(font);
 
         // If no fields have been explicitly included, then all fields are flattened.
         // Otherwise only the included fields are flattened.
