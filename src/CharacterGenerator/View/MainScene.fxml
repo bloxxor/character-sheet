@@ -16,7 +16,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Characters">
             <items>
-              <MenuItem mnemonicParsing="false" text="Add Character" />
+              <MenuItem mnemonicParsing="false" text="Add Character" onAction="#onMenuAddCharacterClick" />
                   <MenuItem mnemonicParsing="false" text="Display Characters" />
                   <MenuItem mnemonicParsing="false" text="Update Character" />
                   <MenuItem mnemonicParsing="false" text="Delete Character" />

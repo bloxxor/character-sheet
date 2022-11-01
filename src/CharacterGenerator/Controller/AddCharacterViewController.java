@@ -1,6 +1,8 @@
 package CharacterGenerator.Controller;
 
+import CharacterGenerator.CharacterGenerator;
 import CharacterGenerator.Model.Character;
+import CharacterGenerator.Model.DatabaseModel;
 import CharacterGenerator.Model.DatabaseModelCharacter;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -14,7 +16,12 @@ public class AddCharacterViewController {
     public void insertCharacterButtonClick(ActionEvent actionEvent) {
         String characterName = enterCharacterName.getText();
         Character character = new Character(characterName);
-        //Character.instance.db.insertEntry(recipe);
+        DatabaseModel.connect();
+        CharacterGenerator.instance.dbInsertCharacter.insertCharacter(character);
+
+//        DatabaseModelCharacter
+//        Character.instance.db.insertEntry(character);
+//        Character
     }
 
 }

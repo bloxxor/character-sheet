@@ -1,5 +1,7 @@
 package CharacterGenerator;
 
+import CharacterGenerator.Model.DatabaseModel;
+import CharacterGenerator.Model.DatabaseModelCharacter;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,6 +14,8 @@ import java.io.IOException;
 public class CharacterGenerator extends Application {
 
     public static CharacterGenerator instance;
+
+    public DatabaseModelCharacter dbInsertCharacter = new DatabaseModelCharacter();
 
     Stage primaryStage;
 
