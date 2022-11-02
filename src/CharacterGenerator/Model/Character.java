@@ -3,9 +3,11 @@ package CharacterGenerator.Model;
 public class Character {
 
     private String characterName;
+    private String characterDescription;
 
-    public Character(String characterName) {
+    public Character(String characterName, String characterDescription) {
         this.characterName = characterName;
+        this.characterDescription = characterDescription;
     }
 
     public String getCharacterName() {
@@ -16,4 +18,11 @@ public class Character {
         this.characterName = characterName;
     }
 
+    public String getCharacterDescription() {
+        return characterDescription;
+    }
+
+    public void setCharacterDescription(String characterDescription) {
+        this.characterDescription = characterDescription;
+    }
 }

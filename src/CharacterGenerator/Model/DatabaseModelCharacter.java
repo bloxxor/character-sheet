@@ -1,8 +1,14 @@
 package CharacterGenerator.Model;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import static CharacterGenerator.Model.DatabaseModel.connect;
 import static CharacterGenerator.Model.DatabaseModel.connection;
 
 public class DatabaseModelCharacter {
@@ -12,12 +18,12 @@ public class DatabaseModelCharacter {
         try {
 
             // SQL Query - prepared statement
-            String sql = "INSERT INTO characters (name) VALUES (?)";
+            String sql = "INSERT INTO characters (name, description) VALUES (?,?)";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, character.getCharacterName());
-//            preparedStatement.setInt(2, burgerRecipe.getRecipeCookingTime());
+            preparedStatement.setString(2, character.getCharacterDescription());
 //            preparedStatement.setString(3, burgerRecipe.getRecipeIngredients());
 
             preparedStatement.execute();
@@ -26,6 +32,25 @@ public class DatabaseModelCharacter {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
+    }
+
+    public static ObservableList<Character> getAllEntries() throws SQLException {
+        connect();
+        ObservableList<Character> characterObservableList = FXCollections.observableArrayList();
+
+        String sql = "SELECT * FROM characters";
+        Statement statement = connection.createStatement();
+
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        while(resultSet.next()) {
+            String characterName = resultSet.getString("name");
+            Character character = new Character(characterName, "Desc");
+            characterObservableList.add(character);
+        }
+
+        return characterObservableList;
 
     }
 

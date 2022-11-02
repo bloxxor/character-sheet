@@ -38,7 +38,11 @@ public class MainSceneController {
     }
 
     public void onMenuAddCharacterClick(ActionEvent actionEvent) throws IOException {
-        CharacterGenerator.instance.loadScene("AddCharacterView.fxml");
+        CharacterGenerator.instance.loadScene("Character/AddCharacterView.fxml");
+    }
+
+    public void onMenuDisplayCharactersClick(ActionEvent actionEvent) throws IOException {
+        CharacterGenerator.instance.loadScene("Character/DisplayCharactersView.fxml");
     }
 
 }
