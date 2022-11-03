@@ -24,7 +24,6 @@ public class DatabaseModelCharacter {
 
             preparedStatement.setString(1, character.getCharacterName());
             preparedStatement.setString(2, character.getCharacterDescription());
-//            preparedStatement.setString(3, burgerRecipe.getRecipeIngredients());
 
             preparedStatement.execute();
             System.out.println("Datensatz wurde eingefügt.");
@@ -36,7 +35,9 @@ public class DatabaseModelCharacter {
     }
 
     public static ObservableList<Character> getAllEntries() throws SQLException {
+
         connect();
+
         ObservableList<Character> characterObservableList = FXCollections.observableArrayList();
 
         String sql = "SELECT * FROM characters";
@@ -46,7 +47,8 @@ public class DatabaseModelCharacter {
 
         while(resultSet.next()) {
             String characterName = resultSet.getString("name");
-            Character character = new Character(characterName, "Desc");
+            String characterDescription = resultSet.getString("description");
+            Character character = new Character(characterName, characterDescription);
             characterObservableList.add(character);
         }
 

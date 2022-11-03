@@ -4,6 +4,7 @@ import CharacterGenerator.Model.Character;
 import CharacterGenerator.Model.DatabaseModelCharacter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -29,6 +30,14 @@ public class DisplayCharactersViewController {
 
         characterObservableList = DatabaseModelCharacter.getAllEntries();
         tableCharacter.setItems(characterObservableList);
+
+    }
+
+    public void printSelectedCharacter(ActionEvent actionEvent) {
+
+        System.out.println(
+                tableCharacter.getRowFactory()
+        );
 
     }
 

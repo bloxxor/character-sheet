@@ -25,4 +25,5 @@ public class Character {
     public void setCharacterDescription(String characterDescription) {
         this.characterDescription = characterDescription;
     }
+
 }

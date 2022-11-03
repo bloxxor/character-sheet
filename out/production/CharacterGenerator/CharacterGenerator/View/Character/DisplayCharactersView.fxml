@@ -8,7 +8,7 @@
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CharacterGenerator.Controller.Character.DisplayCharactersViewController">
     <children>
 
-            <Button layoutX="14.0" layoutY="396.0" mnemonicParsing="false" text="Show all characters" />
+            <Button onAction="#printSelectedCharacter" layoutX="14.0" layoutY="357.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="345.0" text="Print Selected Character" />
             <TableView fx:id="tableCharacter" layoutX="14.0" layoutY="14.0" prefHeight="335.0" prefWidth="345.0">
                 <columns>
                     <TableColumn fx:id="characterName" prefWidth="75.0" text="Name" />
