@@ -35,8 +35,10 @@ public class DisplayCharactersViewController {
 
     public void printSelectedCharacter(ActionEvent actionEvent) {
 
+        Character character = tableCharacter.getSelectionModel().getSelectedItem();
+
         System.out.println(
-                tableCharacter.getRowFactory()
+                character.getCharacterName()
         );
 
     }

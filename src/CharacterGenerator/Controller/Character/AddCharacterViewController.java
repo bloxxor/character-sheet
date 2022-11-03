@@ -3,7 +3,6 @@ package CharacterGenerator.Controller.Character;
 import CharacterGenerator.CharacterGenerator;
 import CharacterGenerator.Model.Character;
 import CharacterGenerator.Model.DatabaseModel;
-import CharacterGenerator.Model.DatabaseModelCharacter;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
