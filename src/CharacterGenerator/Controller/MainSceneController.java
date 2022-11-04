@@ -49,4 +49,7 @@ public class MainSceneController {
         CharacterGenerator.instance.loadScene("Equipment/AddEquipmentView.fxml");
     }
 
+    public void onMenuDisplayEquipmentClick(ActionEvent actionEvent) throws IOException {
+        CharacterGenerator.instance.loadScene("Equipment/DisplayEquipmentView.fxml");
+    }
 }

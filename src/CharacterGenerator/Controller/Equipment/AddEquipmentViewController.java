@@ -20,7 +20,7 @@ public class AddEquipmentViewController {
 
         String equipmentName = enterEquipmentName.getText();
         String equipmentType = enterEquipmentType.getText();
-        String equipmentDescription = enterEquipmentType.getText();
+        String equipmentDescription = enterEquipmentDescription.getText();
         int equipmentAttack = Integer.parseInt(enterEquipmentAttack.getText());
         int equipmentDefense = Integer.parseInt(enterEquipmentDefense.getText());
 

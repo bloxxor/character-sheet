@@ -14,7 +14,7 @@
       <Label layoutX="14.0" layoutY="64.0" text="Description" />
       <TextArea fx:id="enterCharacterDescription" layoutX="14.0" layoutY="81.0" prefHeight="200.0" prefWidth="200.0" />
       <Label layoutX="14.0" layoutY="292.0" text="Equipment" />
-      <ComboBox layoutX="14.0" layoutY="314.0" prefHeight="25.0" prefWidth="200.0" />
+      <ComboBox onMousePressed="#fillComboBox" fx:id="selectEquipmentComboBox" layoutX="14.0" layoutY="314.0" prefHeight="25.0" prefWidth="200.0" />
       <Button fx:id="insertCharacterButton" layoutX="14.0" layoutY="347.0" mnemonicParsing="false" onAction="#insertCharacterButtonClick" prefHeight="25.0" prefWidth="200.0" text="Insert" />
    </children>
 </AnchorPane>
