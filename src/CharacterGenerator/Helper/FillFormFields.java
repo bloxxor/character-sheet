@@ -24,6 +24,7 @@ public class FillFormFields {
     }
 
     protected void manipulatePdf(String dest) throws Exception {
+
         PdfDocument pdfDoc = new PdfDocument(new PdfReader(SRC), new PdfWriter(dest));
         PdfAcroForm form = PdfAcroForm.getAcroForm(pdfDoc, true);
 
@@ -42,5 +43,7 @@ public class FillFormFields {
         form.flattenFields();
 
         pdfDoc.close();
+
     }
+
 }

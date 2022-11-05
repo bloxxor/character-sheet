@@ -18,7 +18,7 @@ public class PdfGen {
         new PdfGen().manipulatePdf(DEST);
     }
 
-    protected void manipulatePdf(String dest) throws Exception {
+    public void manipulatePdf(String dest) throws Exception {
         PdfDocument pdfDoc = new PdfDocument(new PdfWriter(dest));
         Document doc = new Document(pdfDoc);
 
