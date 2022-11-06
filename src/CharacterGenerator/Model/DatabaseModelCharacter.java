@@ -18,12 +18,14 @@ public class DatabaseModelCharacter {
         try {
 
             // SQL Query - prepared statement
-            String sql = "INSERT INTO characters (name, description) VALUES (?,?)";
+            String sql = "INSERT INTO characters (name, description, dexterity, strength) VALUES (?,?,?,?)";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, character.getCharacterName());
             preparedStatement.setString(2, character.getCharacterDescription());
+            preparedStatement.setInt(3, character.getCharacterDexterity());
+            preparedStatement.setInt(4, character.getCharacterStrength());
 
             preparedStatement.execute();
             System.out.println("Datensatz wurde eingefügt.");
@@ -46,9 +48,14 @@ public class DatabaseModelCharacter {
         ResultSet resultSet = statement.executeQuery(sql);
 
         while(resultSet.next()) {
+
             String characterName = resultSet.getString("name");
             String characterDescription = resultSet.getString("description");
-            Character character = new Character(characterName, characterDescription);
+            int characterStrength = resultSet.getInt("strength");
+            int characterDexterity = resultSet.getInt("dexterity");
+
+            Character character = new Character(characterName, characterDescription, characterStrength, characterDexterity);
+
             characterObservableList.add(character);
         }
 

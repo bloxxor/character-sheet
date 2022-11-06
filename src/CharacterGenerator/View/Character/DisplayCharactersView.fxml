@@ -12,6 +12,8 @@
             <columns>
                 <TableColumn fx:id="characterName" prefWidth="75.0" text="Name" />
                 <TableColumn fx:id="characterDescription" prefWidth="75.0" text="Description" />
+                <TableColumn fx:id="characterStrength" prefWidth="75.0" text="Strength" />
+                <TableColumn fx:id="characterDexterity" prefWidth="75.0" text="Dexterity" />
             </columns>
         </TableView>
         <Button onAction="#printSelectedCharacter" layoutX="14.0" layoutY="357.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="345.0" text="Print Selected Character" />

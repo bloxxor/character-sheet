@@ -12,9 +12,13 @@
       <Label layoutX="14.0" layoutY="14.0" text="Name" />
       <TextField fx:id="enterCharacterName" layoutX="14.0" layoutY="31.0" prefHeight="25.0" prefWidth="200.0" />
       <Label layoutX="14.0" layoutY="64.0" text="Description" />
-      <TextArea fx:id="enterCharacterDescription" layoutX="14.0" layoutY="81.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label layoutX="14.0" layoutY="292.0" text="Equipment" />
-      <Button fx:id="insertCharacterButton" layoutX="14.0" layoutY="347.0" mnemonicParsing="false" onAction="#insertCharacterButtonClick" prefHeight="25.0" prefWidth="200.0" text="Insert" />
-      <ListView fx:id="selectEquipmentListView" onMouseClicked="#fillListView" layoutX="229.0" layoutY="81.0" prefHeight="200.0" prefWidth="301.0" />
+      <TextArea fx:id="enterCharacterDescription" layoutX="14.0" layoutY="81.0" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+      <Label layoutX="229.0" layoutY="64.0" text="Equipment" />
+      <ListView fx:id="selectEquipmentListView" layoutX="229.0" layoutY="81.0" prefHeight="200.0" prefWidth="301.0" />
+      <Label layoutX="17.0" layoutY="292.0" text="Strength" />
+      <TextField fx:id="enterCharacterStrength" alignment="CENTER" layoutX="17.0" layoutY="309.0" prefHeight="25.0" prefWidth="85.0" />
+      <Label layoutX="123.0" layoutY="292.0" text="Dexterity" />
+      <TextField fx:id="enterCharacterDexterity" alignment="CENTER" layoutX="123.0" layoutY="309.0" prefHeight="25.0" prefWidth="91.0" />
+      <Button fx:id="insertCharacterButton" layoutX="14.0" layoutY="350.0" mnemonicParsing="false" onAction="#insertCharacterButtonClick" prefHeight="25.0" prefWidth="200.0" text="Insert" />
    </children>
 </AnchorPane>

@@ -1,14 +1,14 @@
 package CharacterGenerator.Controller.Character;
 
-import CharacterGenerator.Helper.FillFormFields;
-import CharacterGenerator.Helper.PdfGen;
 import CharacterGenerator.Model.Character;
 import CharacterGenerator.Model.DatabaseModelCharacter;
+import com.itextpdf.forms.PdfAcroForm;
+import com.itextpdf.io.font.PdfEncodings;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Table;
-import com.itextpdf.layout.properties.UnitValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,7 +22,6 @@ import java.sql.SQLException;
 
 public class DisplayCharactersViewController {
 
-    public static final String DEST = "./target/sandbox/tables/simple_table.pdf";
 
     @FXML
     private TableView<Character> tableCharacter;
@@ -30,6 +29,10 @@ public class DisplayCharactersViewController {
     private TableColumn<Character, String> characterName;
     @FXML
     private TableColumn<Character, String> characterDescription;
+    @FXML
+    public TableColumn<Character, Integer> characterStrength;
+    @FXML
+    public TableColumn<Character, Integer> characterDexterity;
 
     ObservableList<Character> characterObservableList = FXCollections.observableArrayList();
 
@@ -37,6 +40,8 @@ public class DisplayCharactersViewController {
 
         characterName.setCellValueFactory(new PropertyValueFactory<Character, String>("characterName"));
         characterDescription.setCellValueFactory(new PropertyValueFactory<Character, String>("characterDescription"));
+        characterDexterity.setCellValueFactory(new PropertyValueFactory<Character, Integer>("characterDexterity"));
+        characterStrength.setCellValueFactory(new PropertyValueFactory<Character, Integer>("characterStrength"));
 
         characterObservableList = DatabaseModelCharacter.getAllEntries();
         tableCharacter.setItems(characterObservableList);
@@ -45,28 +50,38 @@ public class DisplayCharactersViewController {
 
     public void printSelectedCharacter(ActionEvent actionEvent) throws Exception {
 
+        // Get selected Character from tableview
         Character character = tableCharacter.getSelectionModel().getSelectedItem();
+
+        String SRC = "./Resources/pdf/5E_CharacterSheetTemplate.pdf";
+        String DEST = "./target/" + character.getCharacterName() + ".pdf";
+        String FONT = "./Resources/fonts/blackchancery.ttf";
+
+        // Debug
+        System.out.println(character.getCharacterName());
 
         File file = new File(DEST);
         file.getParentFile().mkdirs();
 
-        PdfDocument pdfDoc = new PdfDocument(new PdfWriter("./target/sandbox/tables/simple_table.pdf"));
-        Document doc = new Document(pdfDoc);
+        PdfDocument pdfDoc = new PdfDocument(
+                new PdfReader(SRC),
+                new PdfWriter(DEST)
+        );
 
-        Table table = new Table(UnitValue.createPercentArray(8)).useAllAvailableWidth();
+        PdfAcroForm form = PdfAcroForm.getAcroForm(pdfDoc, true);
+        form.setGenerateAppearance(true);
 
-        System.out.println(character.getCharacterName());
+        PdfFont font = PdfFontFactory.createFont(FONT, PdfEncodings.IDENTITY_H);
 
-        for (int i = 0; i < 16; i++) {
-            table.addCell("hi");
-            table.addCell(character.getCharacterName());
-        }
+        form.getField("CharacterName").setValue(character.getCharacterName()).setFont(font);
+        form.getField("Background").setValue(character.getCharacterDescription()).setFont(font);
+        form.getField("STR").setValue(String.valueOf(character.getCharacterDexterity())).setFont(font);
+        form.getField("DEX").setValue(String.valueOf(character.getCharacterStrength())).setFont(font);
 
-        doc.add(table);
+        form.flattenFields();
 
-        doc.close();
+        pdfDoc.close();
 
     }
-
 
 }
