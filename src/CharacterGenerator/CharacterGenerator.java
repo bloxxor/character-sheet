@@ -32,6 +32,7 @@ public class CharacterGenerator extends Application {
     public void start(Stage primaryStage) throws IOException {
 
         this.primaryStage = primaryStage;
+
         instance = this;
 
         primaryStage.setTitle("Character Generator");
@@ -40,7 +41,7 @@ public class CharacterGenerator extends Application {
         primaryStage.setResizable(false);
 
         initRootLayout();
-        loadScene("WelcomeView.fxml");
+        //loadScene("WelcomeView.fxml");
         setIcon();
 
         primaryStage.show();
@@ -54,6 +55,7 @@ public class CharacterGenerator extends Application {
 
         rootLayout = fxmlLoader.load();
         Scene primaryScene = new Scene(rootLayout);
+        primaryScene.getStylesheets().add("/CharacterGenerator/CSS/style.css");
         primaryStage.setScene(primaryScene);
 
     }
@@ -71,6 +73,7 @@ public class CharacterGenerator extends Application {
 
     public void setIcon() {
         InputStream iconStream = getClass().getResourceAsStream("/images/favicon.png");
+        assert iconStream != null;
         Image image = new Image(iconStream);
         primaryStage.getIcons().add(image);
     }

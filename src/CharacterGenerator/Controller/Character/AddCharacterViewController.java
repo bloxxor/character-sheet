@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.input.MouseEvent;
 
 import java.sql.ResultSet;
@@ -18,12 +19,13 @@ import static CharacterGenerator.Model.DatabaseModel.connection;
 
 public class AddCharacterViewController {
 
-    public Button insertCharacterButton;
     public TextField enterCharacterName;
     public TextArea enterCharacterDescription;
-    public ListView<Object> selectEquipmentListView = new ListView<>();
     public TextField enterCharacterStrength;
     public TextField enterCharacterDexterity;
+    public ListView<Object> selectEquipmentListView = new ListView<>();
+    public Button insertCharacterButton;
+    public Button getEquipmentIDButton;
 
     ObservableList<Equipment> equipmentObservableList = FXCollections.observableArrayList();
 
@@ -38,9 +40,12 @@ public class AddCharacterViewController {
         DatabaseModel.connect();
         CharacterGenerator.instance.dbInsertCharacter.insertCharacter(character);
 
-
+        // @TODO
+//        equipmentObservableList = DatabaseModelEquipment.getAllEntries();
+//        tableCharacter.setItems(characterObservableList);
+//        System.out.println(selectEquipmentListView.getSelectionModel().getSelectedItems());
         equipmentObservableList = DatabaseModelEquipment.getAllEntries();
-        //tableCharacter.setItems(characterObservableList);
+
         System.out.println(selectEquipmentListView.getSelectionModel().getSelectedItems());
 
     }
@@ -63,11 +68,17 @@ public class AddCharacterViewController {
             int equipmentDefense = resultSet.getInt("defense");
             int equipmentId = resultSet.getInt("id");
 
-            // Equipment equipment = new Equipment(equipmentName, equipmentDescription, equipmentType, equipmentAttack, equipmentDefense);
-
-            selectEquipmentListView.getItems().add(equipmentName + " " + equipmentId );
+            selectEquipmentListView.getItems().add(equipmentName + " - " + equipmentDescription);
 
         }
+
+    }
+
+    public void getEquipmentIDButtonClick(ActionEvent actionEvent) throws SQLException {
+
+//        equipmentObservableList = DatabaseModelEquipment.getAllEntries();
+//
+//        System.out.println(selectEquipmentListView.getSelectionModel().getSelectedItems());
 
     }
 

@@ -7,9 +7,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CharacterGenerator.Controller.Character.AddCharacterViewController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" styleClass="anchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CharacterGenerator.Controller.Character.AddCharacterViewController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Name" />
+      <Label layoutX="14.0" layoutY="14.0" text="Character Name" />
       <TextField fx:id="enterCharacterName" layoutX="14.0" layoutY="31.0" prefHeight="25.0" prefWidth="200.0" />
       <Label layoutX="14.0" layoutY="64.0" text="Description" />
       <TextArea fx:id="enterCharacterDescription" layoutX="14.0" layoutY="81.0" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
@@ -20,5 +20,8 @@
       <Label layoutX="123.0" layoutY="292.0" text="Dexterity" />
       <TextField fx:id="enterCharacterDexterity" alignment="CENTER" layoutX="123.0" layoutY="309.0" prefHeight="25.0" prefWidth="91.0" />
       <Button fx:id="insertCharacterButton" layoutX="14.0" layoutY="350.0" mnemonicParsing="false" onAction="#insertCharacterButtonClick" prefHeight="25.0" prefWidth="200.0" text="Insert" />
+      <Button fx:id="getEquipmentIDButton" layoutX="229.0" layoutY="309.0" mnemonicParsing="false" onAction="#getEquipmentIDButtonClick" prefHeight="25.0" prefWidth="301.0" text="Get Equipment WIP" />
+      <Label layoutX="229.0" layoutY="14.0" text="Player Name" />
+      <TextField fx:id="enterCharacterPlayerName" layoutX="229.0" layoutY="31.0" prefHeight="25.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
